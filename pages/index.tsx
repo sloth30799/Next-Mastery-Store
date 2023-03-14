@@ -19,7 +19,6 @@ const Home = ({
   products,
   bannerData,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  console.log(products)
   return (
     <>
       <HeroBanner heroBanner={bannerData.length && bannerData[0]} />

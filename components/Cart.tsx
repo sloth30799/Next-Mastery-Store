@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+import React from "react"
 import Link from "next/link"
 import { useShoppingCartContext } from "@/context/ShoppingCartContext"
 import {
@@ -32,21 +32,19 @@ type Product = {
 }
 
 const Cart = () => {
-  const cartRef = useRef()
   const {
     totalPrice,
     totalQuantities,
     cartItems,
     setShowCart,
-    toggleCartItemQuanitity,
+    toggleCartItemQuantity,
     onRemove,
   } = useShoppingCartContext()
 
   async function handleCheckout() {
     const stripe = await getStripe()
-    console.log(cartItems)
 
-    const response = await fetch("/api/stripe", {
+    const response: any = await fetch("/api/stripe", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -54,7 +52,7 @@ const Cart = () => {
       body: JSON.stringify(cartItems),
     })
 
-    // if (response.statusCode === 500) return
+    if (response.statusCode === 500) return
 
     const data = await response.json()
 
@@ -64,7 +62,7 @@ const Cart = () => {
   }
 
   return (
-    <div className="cart-wrapper" ref={cartRef}>
+    <div className="cart-wrapper">
       <div className="cart-container">
         <button
           type="button"
@@ -112,7 +110,7 @@ const Cart = () => {
                         <span
                           className="minus"
                           onClick={() =>
-                            toggleCartItemQuanitity(item._id, "dec")
+                            toggleCartItemQuantity(item._id, "dec")
                           }
                         >
                           <AiOutlineMinus />
@@ -121,7 +119,7 @@ const Cart = () => {
                         <span
                           className="plus"
                           onClick={() =>
-                            toggleCartItemQuanitity(item._id, "inc")
+                            toggleCartItemQuantity(item._id, "inc")
                           }
                         >
                           <AiOutlinePlus />

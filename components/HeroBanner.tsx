@@ -16,7 +16,6 @@ type HeroBannerProps = {
 }
 
 const HeroBanner = ({ heroBanner }: HeroBannerProps) => {
-  console.log(heroBanner)
   return (
     <div className="hero-banner-container">
       <div>

@@ -38,7 +38,7 @@ type ShoppingCartContextProps = {
   incQty: () => void
   decQty: () => void
   onAdd: (product: Product, quantity: number) => void
-  toggleCartItemQuanitity: (id: number, value: string) => void
+  toggleCartItemQuantity: (id: number, value: string) => void
   onRemove: (product: Product) => void
 }
 
@@ -99,7 +99,7 @@ export const ShoppingCartProvider = ({
     toast.success(`${qty} ${product.name} added to the cart.`)
   }
 
-  function toggleCartItemQuanitity(id: number, value: string) {
+  function toggleCartItemQuantity(id: number, value: string) {
     foundProduct = cartItems.find((item: Product) => item._id === id)
     index = cartItems.findIndex((product: Product) => product._id === id)
 
@@ -148,7 +148,7 @@ export const ShoppingCartProvider = ({
         incQty,
         decQty,
         onAdd,
-        toggleCartItemQuanitity,
+        toggleCartItemQuantity,
         onRemove,
       }}
     >

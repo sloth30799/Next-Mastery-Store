@@ -23,7 +23,8 @@ type Product = {
 // const stripe = require("stripe")(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY)
 
 const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY || "", {
-  apiVersion: "2020-08-27",
+  apiVersion: "2022-11-15",
+  typescript: true,
 })
 
 export default async function handler(
@@ -34,7 +35,7 @@ export default async function handler(
     const cartItems = req.body
     try {
       // Create Checkout Sessions from body params.
-      const params = {
+      const params: Stripe.Checkout.SessionCreateParams = {
         submit_type: "pay",
         mode: "payment",
         payment_method_types: ["card"],
@@ -43,7 +44,7 @@ export default async function handler(
           { shipping_rate: "shr_1MlGwlHMBqdtOZFdHOK75zt2" },
           { shipping_rate: "shr_1MlGx8HMBqdtOZFdVxTSZxYQ" },
         ],
-        line_items: req.body.map((item: Product) => {
+        line_items: cartItems.map((item: Product) => {
           const img = item.image[0].asset._ref
           const newImage = img
             .replace(
@@ -74,7 +75,6 @@ export default async function handler(
       // Create Checkout Sessions from body params.
       const session = await stripe.checkout.sessions.create(params)
 
-      console.log(session)
       res.status(200).json(session)
     } catch (err: any) {
       res.status(err.statusCode || 500).json(err.message)
