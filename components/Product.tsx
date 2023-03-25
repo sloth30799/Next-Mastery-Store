@@ -1,26 +1,11 @@
-import { urlFor } from "@/lib/client"
+import { getImageUrl } from "@/lib/getImageUrl"
+import { Product } from "@/types"
+import Image from "next/image"
 import Link from "next/link"
 import React from "react"
 
-type Image = {
-  asset: {}
-  _key: string
-}
-
-type Slug = {
-  current: string
-}
-
 type ProductProps = {
-  product: {
-    image: Image[]
-    name: string
-    slug: Slug
-    price: number
-    quantity: number
-    details: string
-    _id: number
-  }
+  product: Product
 }
 
 const Product = ({ product: { image, name, slug, price } }: ProductProps) => {
@@ -28,11 +13,10 @@ const Product = ({ product: { image, name, slug, price } }: ProductProps) => {
     <div>
       <Link href={`/product/${slug.current}`}>
         <div className="product-card">
-          <img
-            src={urlFor(image && image[0])
-              .width(250)
-              .height(250)
-              .url()}
+          <Image
+            src={getImageUrl(image && image[0])}
+            width={300}
+            height={300}
             alt={name}
           />
           <p className="product-name">{name}</p>

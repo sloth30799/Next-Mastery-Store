@@ -1,25 +1,6 @@
-import { Product } from "@/components"
+import { CartItem, Product } from "@/types"
 import { createContext, useState, ReactNode, useContext } from "react"
 import { toast } from "react-hot-toast"
-
-type Image = {
-  asset: {}
-  _key: string
-}
-
-type Slug = {
-  current: string
-}
-
-type Product = {
-  image: Image[]
-  name: string
-  slug: Slug
-  price: number
-  quantity: number
-  details: string
-  _id: number
-}
 
 type ShoppingCartProviderProps = {
   children: ReactNode
@@ -28,7 +9,7 @@ type ShoppingCartProviderProps = {
 type ShoppingCartContextProps = {
   showCart: boolean
   setShowCart: (value: boolean) => void
-  cartItems: any
+  cartItems: CartItem[]
   setCartItems: (value: []) => void
   totalPrice: number
   setTotalPrice: (value: number) => void
@@ -37,7 +18,7 @@ type ShoppingCartContextProps = {
   qty: number
   incQty: () => void
   decQty: () => void
-  onAdd: (product: Product, quantity: number) => void
+  onAdd: (product: CartItem, quantity: number) => void
   toggleCartItemQuantity: (id: number, value: string) => void
   onRemove: (product: Product) => void
 }
@@ -57,7 +38,7 @@ export const ShoppingCartProvider = ({
   const [totalQuantities, setTotalQuantities] = useState(0)
   const [qty, setQty] = useState(1)
 
-  let foundProduct: Product
+  let foundProduct: CartItem
   let index: number
 
   function incQty() {
@@ -72,7 +53,7 @@ export const ShoppingCartProvider = ({
     })
   }
 
-  function onAdd(product: Product, quantity: number) {
+  function onAdd(product: CartItem, quantity: number) {
     const checkProductInCart = cartItems.find(
       (item: Product) => item._id === product._id
     )
@@ -81,7 +62,7 @@ export const ShoppingCartProvider = ({
     setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity)
 
     if (checkProductInCart) {
-      const updatedCartItems = cartItems.map((cartProduct: Product) => {
+      const updatedCartItems = cartItems.map((cartProduct: CartItem) => {
         if (cartProduct._id === product._id)
           return {
             ...cartProduct,
@@ -104,7 +85,7 @@ export const ShoppingCartProvider = ({
     index = cartItems.findIndex((product: Product) => product._id === id)
 
     if (value === "inc") {
-      const newCartItem = cartItems.map((item: Product) =>
+      const newCartItem = cartItems.map((item: CartItem) =>
         item._id === id ? { ...item, quantity: item.quantity + 1 } : item
       )
       setCartItems(newCartItem)
@@ -112,7 +93,7 @@ export const ShoppingCartProvider = ({
       setTotalQuantities((prev) => prev + 1)
     } else if (value === "dec") {
       if (foundProduct.quantity > 1) {
-        const newCartItem = cartItems.map((item: Product) =>
+        const newCartItem = cartItems.map((item: CartItem) =>
           item._id === id ? { ...item, quantity: item.quantity - 1 } : item
         )
         setCartItems(newCartItem)

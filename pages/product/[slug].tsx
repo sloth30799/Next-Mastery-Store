@@ -1,5 +1,4 @@
-import { Product } from "@/components"
-import { client, urlFor } from "@/lib/client"
+import { client } from "@/lib/client"
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next"
 import {
   AiFillStar,
@@ -9,27 +8,10 @@ import {
 } from "react-icons/ai"
 import { useState } from "react"
 import { useShoppingCartContext } from "@/context/ShoppingCartContext"
-
-type Image = {
-  asset: {}
-  _key: string
-}
-
-type Slug = {
-  current: string
-}
-
-type Product = {
-  image: Image[]
-  name: string
-  slug: Slug
-  price: number
-  quantity: number
-  details: string
-  _id: number
-}
-
-type Products = Product[]
+import { getImageUrl } from "@/lib/getImageUrl"
+import Image from "next/image"
+import { Image as ImageType, Product as ProductType } from "../../types"
+import { Product } from "@/components"
 
 const ProductDetails = ({
   product,
@@ -51,17 +33,21 @@ const ProductDetails = ({
       <div className="product-detail-container">
         <div>
           <div className="image-container">
-            <img
-              src={urlFor(image && image[index]).url()}
+            <Image
+              src={getImageUrl(image && image[index])}
               alt={name}
+              width={300}
+              height={300}
               className="product-detail-image"
             />
           </div>
           <div className="small-images-container">
-            {image?.map((item: Image, i: number) => (
-              <img
+            {image?.map((img: ImageType, i: number) => (
+              <Image
                 key={i}
-                src={urlFor(item).url()}
+                src={getImageUrl(img)}
+                width={300}
+                height={300}
                 alt="product"
                 className={
                   i === index ? "small-image selected-image" : "small-image"
@@ -75,7 +61,7 @@ const ProductDetails = ({
         <div className="product-detail-desc">
           <h1>{name}</h1>
           <div className="reviews">
-            <div>
+            <div className="flex">
               <AiFillStar />
               <AiFillStar />
               <AiFillStar />
@@ -89,7 +75,7 @@ const ProductDetails = ({
           <p className="price">${price}</p>
           <div className="quantity">
             <h3>Quantity:</h3>
-            <p className="quantity-desc">
+            <p className="quantity-desc flex items-center">
               <span className="minus" onClick={decQty}>
                 <AiOutlineMinus />
               </span>
@@ -118,7 +104,7 @@ const ProductDetails = ({
         <h2>You may also like</h2>
         <div className="marquee">
           <div className="maylike-products-container track">
-            {products.map((item: Product) => (
+            {products.map((item: ProductType) => (
               <Product key={item._id} product={item} />
             ))}
           </div>
@@ -132,8 +118,8 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const query = `*[_type == "product" && slug.current == '${params?.slug}'][0]`
   const productsQuery = `*[_type == "product"]`
 
-  const product: Product = await client.fetch(query)
-  const products: Products = await client.fetch(productsQuery)
+  const product: ProductType = await client.fetch(query)
+  const products: ProductType[] = await client.fetch(productsQuery)
 
   return {
     props: { product, products },
@@ -149,7 +135,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const products = await client.fetch(query)
 
-  const paths = products.map((product: Product) => ({
+  const paths = products.map((product: ProductType) => ({
     params: {
       slug: product.slug.current,
     },

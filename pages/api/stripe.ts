@@ -1,24 +1,6 @@
+import { CartItem } from "@/types"
 import type { NextApiRequest, NextApiResponse } from "next"
 import { Stripe } from "stripe"
-
-type Image = {
-  asset: { _ref: string }
-  _key: string
-}
-
-type Slug = {
-  current: string
-}
-
-type Product = {
-  image: Image[]
-  name: string
-  slug: Slug
-  price: number
-  quantity: number
-  details: string
-  _id: number
-}
 
 // const stripe = require("stripe")(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY)
 
@@ -44,7 +26,7 @@ export default async function handler(
           { shipping_rate: "shr_1MlGwlHMBqdtOZFdHOK75zt2" },
           { shipping_rate: "shr_1MlGx8HMBqdtOZFdVxTSZxYQ" },
         ],
-        line_items: cartItems.map((item: Product) => {
+        line_items: cartItems.map((item: CartItem) => {
           const img = item.image[0].asset._ref
           const newImage = img
             .replace(

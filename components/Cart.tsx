@@ -1,6 +1,5 @@
-import React from "react"
+import Image from "next/image"
 import Link from "next/link"
-import { useShoppingCartContext } from "@/context/ShoppingCartContext"
 import {
   AiOutlineMinus,
   AiOutlinePlus,
@@ -9,27 +8,10 @@ import {
 } from "react-icons/ai"
 import { TiDeleteOutline } from "react-icons/ti"
 import toast from "react-hot-toast"
-import { urlFor } from "../lib/client"
 import getStripe from "@/lib/getStripe"
-
-type Image = {
-  asset: {}
-  _key: string
-}
-
-type Slug = {
-  current: string
-}
-
-type Product = {
-  image: Image[]
-  name: string
-  slug: Slug
-  price: number
-  quantity: number
-  details: string
-  _id: number
-}
+import { useShoppingCartContext } from "@/context/ShoppingCartContext"
+import { CartItem } from "@/types"
+import { getImageUrl } from "@/lib/getImageUrl"
 
 const Cart = () => {
   const {
@@ -44,7 +26,7 @@ const Cart = () => {
   async function handleCheckout() {
     const stripe = await getStripe()
 
-    const response: any = await fetch("/api/stripe", {
+    const response = await fetch("/api/stripe", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,7 +34,7 @@ const Cart = () => {
       body: JSON.stringify(cartItems),
     })
 
-    if (response.statusCode === 500) return
+    if (response.status === 500) return
 
     const data = await response.json()
 
@@ -92,11 +74,13 @@ const Cart = () => {
 
         <div className="product-container">
           {cartItems.length >= 1 &&
-            cartItems.map((item: Product) => (
+            cartItems.map((item: CartItem) => (
               <div className="product" key={item._id}>
-                <img
-                  src={urlFor(item?.image[0]).url()}
+                <Image
+                  src={getImageUrl(item?.image[0])}
                   alt={item.name}
+                  width={300}
+                  height={300}
                   className="cart-product-image"
                 />
                 <div className="item-desc">

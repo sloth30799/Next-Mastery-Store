@@ -11,7 +11,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="layout">
       <Head>
-        <title>Next Mastery Store</title>
+        <title>Wanderer Store</title>
       </Head>
       <header>
         <Navbar />

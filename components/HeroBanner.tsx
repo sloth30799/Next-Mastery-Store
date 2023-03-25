@@ -1,41 +1,49 @@
+import { getImageUrl } from "@/lib/getImageUrl"
+import { Banner } from "@/types"
 import Image from "next/image"
 import Link from "next/link"
 import React from "react"
-import { urlFor } from "@/lib/client"
 
 type HeroBannerProps = {
-  heroBanner: {
-    smallText: string
-    midText: string
-    largeText: string
-    image: object
-    product: string
-    buttonText: string
-    desc: string
-  }
+  heroBanner: Banner
 }
 
 const HeroBanner = ({ heroBanner }: HeroBannerProps) => {
   return (
     <div className="hero-banner-container">
       <div>
-        <p className="beats-solo">{heroBanner.smallText}</p>
-        <h3>{heroBanner.midText}</h3>
-        <h1>{heroBanner.largeText}</h1>
-        <img
-          src={urlFor(heroBanner.image).url()}
+        <Image
+          src={getImageUrl(heroBanner.image[0])}
           alt={heroBanner.product}
-          // width={450}
-          // height={450}
-          className="hero-banner-image"
+          width={300}
+          height={300}
+          className="hero-banner-image right-[5%]"
+        />
+        <Image
+          src={getImageUrl(heroBanner.image[1])}
+          alt={heroBanner.product}
+          width={300}
+          height={300}
+          className="hero-banner-image lg:right-[55%] xl:right-[35%] hidden lg:block"
+        />
+        <Image
+          src={getImageUrl(heroBanner.image[2])}
+          alt={heroBanner.product}
+          width={300}
+          height={300}
+          className="hero-banner-image right-[65%] hidden xl:block"
         />
 
         <div>
-          <Link href={`/product/headphones_c`}>
-            <button type="button">{heroBanner.buttonText}</button>
-          </Link>
+          <div className="text">
+            <p className="beats-solo">{heroBanner.smallText}</p>
+            <h3>{heroBanner.midText}</h3>
+            <Link href={`/product/headphones_c`}>
+              <button type="button">{heroBanner.buttonText}</button>
+            </Link>
+          </div>
 
-          <div className="desc">
+          <div className="hidden desc">
             <h5>Description</h5>
             <p>{heroBanner.desc}</p>
           </div>

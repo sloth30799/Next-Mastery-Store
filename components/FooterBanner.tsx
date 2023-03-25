@@ -1,25 +1,15 @@
-import { urlFor } from "@/lib/client"
+import { getImageUrl } from "@/lib/getImageUrl"
+import { Banner } from "@/types"
+import Image from "next/image"
 import Link from "next/link"
 import React from "react"
 
 type FooterBannerProps = {
-  footerBanner: {
-    discount: string
-    largeText1: string
-    largeText2: string
-    saleTime: string
-    smallText: string
-    midText: string
-    largeText: string
-    image: object
-    product: string
-    buttonText: string
-    desc: string
-  }
+  footerBanner: Banner
 }
 
-const FooterBanner = ({
-  footerBanner: {
+const FooterBanner = ({ footerBanner }: FooterBannerProps) => {
+  const {
     discount,
     largeText1,
     largeText2,
@@ -30,8 +20,8 @@ const FooterBanner = ({
     product,
     buttonText,
     image,
-  },
-}: FooterBannerProps) => {
+  } = footerBanner
+
   return (
     <div className="footer-banner-container">
       <div className="banner-desc">
@@ -50,8 +40,10 @@ const FooterBanner = ({
           </Link>
         </div>
 
-        <img
-          src={urlFor(image).url()}
+        <Image
+          src={getImageUrl(image[0])}
+          width={300}
+          height={300}
           alt={product}
           className="footer-banner-image"
         />

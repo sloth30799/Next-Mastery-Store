@@ -7,9 +7,9 @@ import Cart from "./Cart"
 const Navbar = () => {
   const { showCart, setShowCart, totalQuantities } = useShoppingCartContext()
   return (
-    <div className="navbar-container">
+    <div className="navbar-container pb-5">
       <p className="logo">
-        <Link href="/">NMS Headphones</Link>
+        <Link href="/">Wanderer Store</Link>
       </p>
 
       <button
