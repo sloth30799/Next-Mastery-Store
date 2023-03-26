@@ -1,6 +1,6 @@
 # Wanderer Store 🛍️
 
-An e-commerce store with CMS and Payment processing platform.
+Shop for your adventure with Wanderer Store - a fast and secure e-commerce app that offers a wide range of backpacks to enhance your travel experience.
 
 ![Imgur](https://i.imgur.com/G9JaUMZ.jpg)
 
