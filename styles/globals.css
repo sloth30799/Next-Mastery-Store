@@ -316,7 +316,7 @@ span.text-red {
   border-radius: 15px;
   background-color: #ebebeb;
 }
-.item-desc .flex {
+.item-desc {
   display: flex;
   justify-content: space-between;
   width: 350px;
@@ -324,12 +324,6 @@ span.text-red {
 }
 .item-desc .bottom {
   margin-top: 60px;
-}
-.flex h5 {
-  font-size: 24px;
-}
-.flex h4 {
-  font-size: 20px;
 }
 .total {
   display: flex;
@@ -654,7 +648,7 @@ span.text-red {
     margin: 20px;
   }
 
-  .item-desc .flex {
+  .item-desc {
     width: 200px;
   }
   .top {
@@ -663,14 +657,6 @@ span.text-red {
   }
   .item-desc .bottom {
     margin-top: 30px;
-  }
-  .flex h5 {
-    font-size: 16px;
-    color: #324d67;
-  }
-  .flex h4 {
-    font-size: 16px;
-    color: black;
   }
   .cart-bottom {
     padding: 30px;

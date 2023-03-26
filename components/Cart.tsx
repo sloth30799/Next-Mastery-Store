@@ -83,14 +83,16 @@ const Cart = () => {
                   height={300}
                   className="cart-product-image"
                 />
-                <div className="item-desc">
-                  <div className="flex top">
-                    <h5>{item.name}</h5>
-                    <h4>${item.price}</h4>
+                <div className="item-desc flex flex-col gap-6">
+                  <div className="">
+                    <h5 className="text-xl font-bold">{item.name}</h5>
+                    <h4 className="text-lg font-semibold font-gray">
+                      ${item.price}
+                    </h4>
                   </div>
-                  <div className="flex bottom">
+                  <div className="flex justify-between">
                     <div>
-                      <p className="quantity-desc">
+                      <p className="quantity-desc flex items-center justify-between">
                         <span
                           className="minus"
                           onClick={() =>
@@ -99,9 +101,9 @@ const Cart = () => {
                         >
                           <AiOutlineMinus />
                         </span>
-                        <span className="num">{item.quantity}</span>
+                        <span className="">{item.quantity}</span>
                         <span
-                          className="plus"
+                          className="plus border-l border-black"
                           onClick={() =>
                             toggleCartItemQuantity(item._id, "inc")
                           }

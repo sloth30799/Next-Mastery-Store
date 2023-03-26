@@ -22,7 +22,7 @@ const HeroBanner = ({ heroBanner }: HeroBannerProps) => {
               {heroBanner.discount}
             </p>
             <p>{heroBanner.desc}</p>
-            <Link href={`/product/headphones_c`}>
+            <Link href={`/product/orion-backpack`}>
               <button
                 type="button"
                 className="mt-3 font-semibold rounded-lg p-2 bg-blue text-white hover:bg-white hover:text-red"

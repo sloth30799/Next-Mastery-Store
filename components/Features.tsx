@@ -5,7 +5,7 @@ import { TbTruckReturn } from "react-icons/tb"
 
 const Features = () => {
   return (
-    <div className="grid grid-rows-3 md:grid-rows-1 md:grid-cols-3 justify-items-center gap-6 my-24">
+    <div className="grid grid-rows-3 md:grid-rows-1 md:grid-cols-3 justify-items-center gap-6 my-24 hover:cursor-default">
       <div>
         <FaShippingFast size={"4rem"} />
         Fast Shipping
