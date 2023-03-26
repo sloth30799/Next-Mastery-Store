@@ -1,8 +1,8 @@
-# Next Mastery Store 🛍️
+# Wanderer Store 🛍️
 
 An e-commerce store with CMS and Payment processing platform.
 
-![Imgur](https://i.imgur.com/lJ6wF90.jpg)
+![Imgur](https://i.imgur.com/G9JaUMZ.jpg)
 
 ## Tech Used
 ![Next.js](https://img.shields.io/badge/-Next.js-black?style=for-the-badge&logo=vercel&logoColor=white)
