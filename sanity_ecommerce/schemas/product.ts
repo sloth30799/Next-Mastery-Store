@@ -1,4 +1,4 @@
-import {defineType, defineField, defineArrayMember} from 'sanity'
+import {defineType, defineField} from 'sanity'
 
 export default defineType({
   name: 'product',
@@ -25,6 +25,12 @@ export default defineType({
         maxLength: 90,
       },
     }),
+    {
+      name: 'category',
+      title: 'Category',
+      type: 'string',
+      validation: (Rule) => Rule.lowercase(),
+    },
     {
       name: 'price',
       title: 'Price',

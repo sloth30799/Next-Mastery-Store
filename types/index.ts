@@ -16,6 +16,7 @@ export interface Product {
   name: string
   price: number
   slug: Slug
+  category: string
 }
 
 export interface CartItem extends Product {

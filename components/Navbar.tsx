@@ -12,13 +12,18 @@ const Navbar = () => {
         <Link href="/">Wanderer Store</Link>
       </p>
 
+      <div className="hidden flex gap-6">
+        <p>Collection</p>
+        <p>Community</p>
+      </div>
+
       <button
         title="cart"
         type="button"
         className="cart-icon"
         onClick={() => setShowCart(true)}
       >
-        <AiOutlineShopping />
+        <AiOutlineShopping size={"1.5rem"} color="black" />
         <span className="cart-item-qty">{totalQuantities}</span>
       </button>
 

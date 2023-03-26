@@ -36,7 +36,9 @@ const FooterBanner = ({ footerBanner }: FooterBannerProps) => {
           <h3>{midText}</h3>
           <p>{desc}</p>
           <Link href={`/product/headphones_c`}>
-            <button type="button">{buttonText}</button>
+            <button type="button" className="hover:bg-blue hover:text-white">
+              {buttonText}
+            </button>
           </Link>
         </div>
 

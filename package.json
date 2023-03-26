@@ -9,11 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.5.3",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
     "@sanity/cli": "^3.6.0",
     "@sanity/image-url": "^1.0.1",
     "@sanity/vision": "^3.0.0",
     "@stripe/stripe-js": "^1.49.0",
     "canvas-confetti": "^1.6.0",
+    "framer-motion": "^10.9.1",
     "next": "^13.2.4",
     "next-sanity": "^4.1.5",
     "next-sanity-image": "^6.0.0",

@@ -9,16 +9,19 @@ type ProductProps = {
 }
 
 const Product = ({ product: { image, name, slug, price } }: ProductProps) => {
+  // console.log(image)
   return (
     <div>
       <Link href={`/product/${slug.current}`}>
         <div className="product-card">
-          <Image
-            src={getImageUrl(image && image[0])}
-            width={300}
-            height={300}
-            alt={name}
-          />
+          {image && (
+            <Image
+              src={getImageUrl(image[0])}
+              width={300}
+              height={300}
+              alt={name}
+            />
+          )}
           <p className="product-name">{name}</p>
           <p className="product-price">${price}</p>
         </div>
