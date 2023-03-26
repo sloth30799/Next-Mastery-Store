@@ -47,7 +47,7 @@ const FooterBanner = ({ footerBanner }: FooterBannerProps) => {
           width={300}
           height={300}
           alt={product}
-          className="footer-banner-image"
+          className="footer-banner-image hidden lg:block"
         />
       </div>
     </div>

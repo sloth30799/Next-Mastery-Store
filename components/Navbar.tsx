@@ -12,10 +12,10 @@ const Navbar = () => {
         <Link href="/">Wanderer Store</Link>
       </p>
 
-      <div className="hidden flex gap-6">
+      {/* <div className="flex gap-6">
         <p>Collection</p>
         <p>Community</p>
-      </div>
+      </div> */}
 
       <button
         title="cart"

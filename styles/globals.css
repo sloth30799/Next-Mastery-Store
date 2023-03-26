@@ -33,7 +33,6 @@ a {
   display: flex;
   justify-content: space-between;
   margin: 6px 18px;
-  position: relative;
 }
 .marquee-text {
   font-size: 29px;
@@ -213,9 +212,7 @@ span.text-red {
 }
 .footer-banner-image {
   position: absolute;
-  /* top: -35%;
-  left: 8%; */
-  top: -25%;
+  top: -15%;
   left: 35%;
 }
 .banner-desc .right {

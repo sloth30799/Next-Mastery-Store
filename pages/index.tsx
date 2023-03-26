@@ -43,7 +43,7 @@ const Home = ({
         <p>Best backpacks in the market</p>
       </div>
       <ToolBox />
-      <div className="products-container">
+      <div className="products-container p-3">
         {products?.map((product: ProductType) => (
           <Product key={product._id} product={product} />
         ))}

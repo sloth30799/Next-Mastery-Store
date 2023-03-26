@@ -1,13 +1,18 @@
+import Link from "next/link"
 import React from "react"
-import { AiFillInstagram, AiOutlineTwitter } from "react-icons/ai"
+import { AiOutlineTwitter, AiFillMail } from "react-icons/ai"
 
 const Footer = () => {
   return (
     <div className="footer-container">
-      <p>2022 NMS Headphones All rights reserved</p>
+      <p> Copyright © 2023 - All right reserved</p>
       <p className="icons">
-        <AiFillInstagram />
-        <AiOutlineTwitter />
+        <Link href="https://twitter.com/hanyehtun" target="_blank">
+          <AiOutlineTwitter />
+        </Link>
+        <Link href="mailto:sloth30799@gmail.com" target="_blank">
+          <AiFillMail />
+        </Link>
       </p>
     </div>
   )

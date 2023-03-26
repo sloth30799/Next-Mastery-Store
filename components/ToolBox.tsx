@@ -91,7 +91,7 @@ const ToolBox = () => {
         </div>
       </div>
       {open && (
-        <div className="mt-12 flex flex-col justify-center font-semibold tracking-tight md:flex-row gap-12 md:justify-around">
+        <div className="mt-12 flex flex-col justify-center font-semibold tracking-tight border border-solid rounded-lg p-3 md:flex-row gap-12 md:justify-around">
           <div className="flex flex-col gap-3 p-3">
             <Checkbox
               isChecked={allChecked}
@@ -135,7 +135,7 @@ const ToolBox = () => {
             </button>
           </div>
           <ul className="list-disc flex flex-col items-center">
-            <li className="text-xl list-none text-semibold">Price</li>
+            <li className="text-xl list-none text-semibold">Sort By Price</li>
             <li
               onClick={() => sortProducts("desc")}
               className="text-lg underline mt-3 hover:cursor-pointer"
