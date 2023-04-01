@@ -1,8 +1,8 @@
-# Next Mastery Store 🛍️
+# Wanderer Store 🛍️ [Link](https://tackletalk.onrender.com/)
 
-An e-commerce store with CMS and Payment processing platform.
+Shop for your adventure with Wanderer Store - a fast and secure e-commerce app that offers a wide range of backpacks to enhance your travel experience.
 
-![Imgur](https://i.imgur.com/lJ6wF90.jpg)
+![Imgur](https://i.imgur.com/G9JaUMZ.jpg)
 
 ## Tech Used
 ![Next.js](https://img.shields.io/badge/-Next.js-black?style=for-the-badge&logo=vercel&logoColor=white)
