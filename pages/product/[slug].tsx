@@ -137,8 +137,15 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const product: ProductType = await client.fetch(query)
   const products: ProductType[] = await client.fetch(productsQuery)
 
+  if (!product) {
+    return {
+      notFound: true,
+    }
+  }
+
   return {
     props: { product, products },
+    revalidate: 60 * 60,
   }
 }
 
