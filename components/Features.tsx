@@ -5,18 +5,18 @@ import { TbTruckReturn } from "react-icons/tb"
 
 const Features = () => {
   return (
-    <div className="grid grid-rows-3 md:grid-rows-1 md:grid-cols-3 justify-items-center gap-6 my-24 hover:cursor-default">
-      <div>
-        <FaShippingFast size={"4rem"} />
-        Fast Shipping
+    <div className="grid grid-cols-3 gap-6 my-24 justify-items-center hover:cursor-default">
+      <div className="flex flex-col items-center justify-center">
+        <FaShippingFast className="text-3xl lg:text-6xl" />
+        <span className="text-sm md:font-bold">Fast Shipping</span>
       </div>
-      <div>
-        <AiOutlineCheckCircle size={"4rem"} />
-        Warranty
+      <div className="flex flex-col items-center justify-center">
+        <AiOutlineCheckCircle className="text-3xl lg:text-6xl" />
+        <span className="text-sm md:font-bold">Warranty</span>
       </div>
-      <div>
-        <TbTruckReturn size={"4rem"} />
-        Returns
+      <div className="flex flex-col items-center justify-center">
+        <TbTruckReturn className="text-3xl lg:text-6xl" />
+        <span className="text-sm md:font-bold">Returns</span>
       </div>
     </div>
   )

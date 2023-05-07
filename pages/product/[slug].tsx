@@ -69,7 +69,7 @@ const ProductDetails = ({
             </div>
 
             <div className="product-detail-desc">
-              <h1>{name}</h1>
+              <h1 className="font-bold text-lg">{name}</h1>
               <div className="reviews">
                 <div className="flex">
                   <AiFillStar />
@@ -80,11 +80,11 @@ const ProductDetails = ({
                 </div>
                 <p>(20)</p>
               </div>
-              <h4>Details: </h4>
-              <p>{details}</p>
+              <h4 className="font-semibold">Details: </h4>
+              <p className="text-sm">{details}</p>
               <p className="price">${price}</p>
               <div className="quantity">
-                <h3>Quantity:</h3>
+                <h3 className="font-semibold">Quantity:</h3>
                 <p className="quantity-desc flex items-center">
                   <span className="minus" onClick={decQty}>
                     <AiOutlineMinus />
