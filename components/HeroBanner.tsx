@@ -10,11 +10,11 @@ type HeroBannerProps = {
 
 const HeroBanner = ({ heroBanner }: HeroBannerProps) => {
   return (
-    <div className="bg-yellow rounded-xl px-12 py-6 text-red tracking-wide">
+    <div className="bg-yellow py-6 px-3 text-red tracking-wide">
       <div className="z-50">
         <div className="flex justify-center gap-6 xl:gap-12">
           <div className="flex flex-col gap-3 justify-center">
-            <p className="text-md md:text-lg">{heroBanner.smallText}</p>
+            <p className="font-semibold">{heroBanner.smallText}</p>
             <h3 className="text-5xl md:text-6xl font-bold">
               {heroBanner.midText}
             </h3>
@@ -31,7 +31,6 @@ const HeroBanner = ({ heroBanner }: HeroBannerProps) => {
               </button>
             </Link>
           </div>
-
           <Image
             src={getImageUrl(heroBanner.image[0])}
             alt={heroBanner.product}

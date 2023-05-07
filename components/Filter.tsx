@@ -105,8 +105,8 @@ const FilterOption = ({ name }: FilterOptionProps) => {
 
 const Filter = () => {
   return (
-    <div className="flex flex-col gap-3">
-      <h4 className="font-bold">Filter By Category</h4>
+    <div className="flex gap-3">
+      <h4 className="font-semibold">Filter: </h4>
       <div className="flex gap-3">
         <FilterOption name="classics" />
         <FilterOption name="orion" />

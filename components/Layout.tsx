@@ -9,7 +9,7 @@ type LayoutProps = {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="layout">
+    <div>
       <Head>
         <title>Wanderer Store</title>
       </Head>

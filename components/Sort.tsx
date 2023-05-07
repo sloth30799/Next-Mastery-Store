@@ -37,16 +37,16 @@ const Sort = () => {
     setOpen(false)
   }
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex flex-col gap-6 relative">
       <h4
-        className="flex text-md font-bold gap-3 items-center cursor-pointer"
+        className="flex text-md font-semibold gap-3 items-center cursor-pointer"
         onClick={open ? handleClose : handleOpen}
       >
         Sort
         {open ? <RiArrowUpSLine /> : <RiArrowDownSLine />}
       </h4>
       {open && (
-        <ul className="flex flex-col gap-3 list-disc px-6">
+        <ul className="flex flex-col gap-3 list-disc px-6 py-3 rounded-lg z-10 bg-white shadow-xl border-solid border-black border absolute -left-36 top-10">
           <li className="flex flex-col gap-1">
             <h6 className="text-sm font-semibold">Price</h6>
             <SortOption text="From Highest to Lowest" order="desc" />

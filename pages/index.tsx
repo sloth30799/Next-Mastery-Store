@@ -61,7 +61,7 @@ const Home = ({
         <h2>Best Selling Products</h2>
         <p>Best backpacks in the market</p>
       </div>
-      <div className="container m-auto flex flex-col gap-6">
+      <div className="container m-auto flex justify-between">
         <Filter />
         <Sort />
       </div>

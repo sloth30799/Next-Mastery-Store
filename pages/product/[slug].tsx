@@ -36,18 +36,18 @@ const ProductDetails = ({
         <title>{name}</title>
       </Head>
       <body>
-        <div>
-          <Link href=".." className="text-lg">
+        <div className="container m-auto mt-3">
+          <Link href=".." className="ml-3">
             &larr; To the main page
           </Link>
           <div className="product-detail-container">
-            <div>
+            <div className="lg:w-1/2">
               <div className="image-container">
                 <Image
                   src={getImageUrl(image && image[index])}
                   alt={name}
-                  width={300}
-                  height={300}
+                  width={200}
+                  height={200}
                   className="product-detail-image"
                 />
               </div>
@@ -115,7 +115,7 @@ const ProductDetails = ({
           </div>
 
           <div className="maylike-products-wrapper">
-            <h2>You may also like</h2>
+            <h2 className="text-xl">You may also like</h2>
             <div className="marquee">
               <div className="maylike-products-container track">
                 {products.map((item: ProductType) => (
