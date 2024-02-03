@@ -1,4 +1,4 @@
-# Wanderer Store 🛍️ [Link](https://tackletalk.onrender.com/)
+# Wanderer Store 🛍️ [Link](https://wanderer-store.vercel.app/)
 
 Shop for your adventure with Wanderer Store - a fast and secure e-commerce app that offers a wide range of backpacks to enhance your travel experience.
 
